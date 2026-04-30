@@ -60,10 +60,10 @@ export default function ProfitGuidePage() {
         </article>
 
         <aside className="article-aside">
-          <AdSlot label="Profit guide ad placement after approval." size="sidebar" />
+          <AdSlot size="sidebar" />
           <div className="side-note">
-            <strong>SEO target</strong>
-            <p>Sticker sheet profit calculator, Etsy sticker pricing, sticker cost per sheet.</p>
+            <strong>Pricing shortcut</strong>
+            <p>Start with break-even price, then add the margin you need for mistakes, samples, and slow-selling designs.</p>
           </div>
         </aside>
       </div>

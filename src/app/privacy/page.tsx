@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { contactEmail } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -15,16 +16,18 @@ export default function PrivacyPage() {
       </header>
       <article className="article-body">
         <p>
-          StickerFit Studio stores calculator inputs in your browser session only. The current version does not require an
-          account, collect payment data, or send sticker artwork to a server.
+          StickerFit Studio runs the calculator in your browser. You do not need an account, and the tool does not upload
+          sticker artwork or calculator inputs to our servers.
         </p>
         <h2>Analytics and ads</h2>
         <p>
-          A production deployment may use privacy-respecting analytics and Google AdSense. Ad providers may use cookies
-          and similar technologies to measure ads and prevent abuse. Add your live provider details here before launch.
+          We may use analytics and advertising partners to understand site usage, keep the tool free, measure ads, and
+          prevent abuse. These partners may use cookies or similar technologies according to their own policies.
         </p>
         <h2>Contact</h2>
-        <p>Replace this placeholder with the site owner&apos;s public contact email before submitting to AdSense.</p>
+        <p>
+          Questions about this policy can be sent to <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+        </p>
       </article>
     </main>
   );

@@ -64,12 +64,12 @@ export default function CricutSizeGuidePage() {
         </article>
 
         <aside className="article-aside">
-          <AdSlot label="Size guide ad placement after approval." size="sidebar" />
+          <AdSlot size="sidebar" />
           <div className="side-note">
-            <strong>Source note</strong>
+            <strong>Quick reminder</strong>
             <p>
-              Cricut size limits can change with Design Space updates. Check Cricut&apos;s official help page before publishing
-              a public production promise.
+              Check your final file inside your cutting software before printing a full batch. Software updates and machine
+              settings can change the usable area.
             </p>
           </div>
         </aside>

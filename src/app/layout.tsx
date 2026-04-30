@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { contactEmail, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,14 +15,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://stickerfit.example.com";
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "StickerFit Studio | Sticker Sheet Layout and Profit Calculator",
-    template: "%s | StickerFit Studio",
+    default: `${siteName} | Sticker Sheet Layout and Profit Calculator`,
+    template: `%s | ${siteName}`,
   },
   description:
     "Plan Cricut and Silhouette sticker sheets, optimize mixed-size sticker layouts, export SVG/CSV files, and estimate Etsy seller profit.",
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     "Silhouette sticker template",
   ],
   openGraph: {
-    title: "StickerFit Studio",
+    title: siteName,
     description: "A mixed-size sticker sheet planner and profit calculator for small-batch sellers.",
     url: siteUrl,
-    siteName: "StickerFit Studio",
+    siteName,
     type: "website",
   },
 };
@@ -60,10 +60,10 @@ export default function RootLayout({
         <header className="site-header">
           <Link href="/" className="brand" aria-label="StickerFit Studio home">
             <span>SF</span>
-            StickerFit Studio
+            {siteName}
           </Link>
           <nav aria-label="Primary navigation">
-            <Link href="/research">Research</Link>
+            <Link href="/">Calculator</Link>
             <Link href="/guides/sticker-sheet-profit-calculator">Profit Guide</Link>
             <Link href="/guides/cricut-print-then-cut-size-chart">Size Guide</Link>
           </nav>
@@ -71,10 +71,11 @@ export default function RootLayout({
         {children}
         <footer className="site-footer">
           <div>
-            <strong>StickerFit Studio</strong>
-            <p>Independent planning tool for sticker sellers. Not affiliated with Cricut, Silhouette, Etsy, or Google.</p>
+            <strong>{siteName}</strong>
+            <p>Independent sticker sheet planning tool for small-batch sellers.</p>
           </div>
           <nav aria-label="Footer navigation">
+            <a href={`mailto:${contactEmail}`}>Contact</a>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
             <Link href="/sitemap.xml">Sitemap</Link>
