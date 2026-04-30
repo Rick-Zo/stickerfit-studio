@@ -1,66 +1,40 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { AdSlot } from "@/components/AdSlot";
+import { StickerPlanner } from "@/components/StickerPlanner";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+    <main>
+      <section className="product-intro">
+        <div>
+          <p className="eyebrow">StickerFit Studio</p>
+          <h1>Plan profitable Cricut and Silhouette sticker sheets in minutes.</h1>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            A production calculator for Etsy sticker sellers: pack mixed-size stickers, estimate waste, export a cut list,
+            and sanity-check sheet profit before you print.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <AdSlot label="Reserved for one responsive display ad after AdSense approval." size="sidebar" />
+      </section>
+
+      <StickerPlanner />
+
+      <section className="content-band two-column">
+        <div>
+          <p className="eyebrow">Niche angle</p>
+          <h2>Built for small-batch sellers, not generic print shops.</h2>
+          <p>
+            Most calculators stop at simple rows and columns. StickerFit handles mixed SKUs, freebies, bleed, gaps, and
+            platform fees in the same workspace, so a maker can turn a listing idea into a production sheet and price
+            check without opening a spreadsheet.
+          </p>
         </div>
-      </main>
-    </div>
+        <div className="checklist">
+          <span>Mixed-size sticker nesting</span>
+          <span>SVG and CSV exports</span>
+          <span>Waste and margin signals</span>
+          <span>AdSense-ready content structure</span>
+        </div>
+      </section>
+    </main>
   );
 }

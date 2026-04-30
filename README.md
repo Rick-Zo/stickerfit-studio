@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StickerFit Studio
 
-## Getting Started
+StickerFit Studio is a niche utility-content web project for Etsy/Cricut sticker sellers. It combines a mixed-size sticker sheet planner, SVG/CSV exports, material waste signals, and a sheet-level profit calculator.
 
-First, run the development server:
+## Product Thesis
+
+Small sticker shops repeatedly need to answer one narrow question: "How many sellable stickers fit inside my print-and-cut area, and is this sheet profitable?" Generic calculators usually handle one sticker size at a time. This project targets the more useful workflow: mixed SKUs, freebies, bleed, gaps, rotation, cuttable-area presets, and marketplace fee assumptions in one browser tool.
+
+Research snapshot, April 30, 2026:
+
+- Etsy reported 5.6 million Etsy marketplace active sellers as of December 31, 2025.
+- Cricut's help page documents Print Then Cut size constraints such as Letter 7.44 x 9.94 in and A4 7.2 x 10.62 in.
+- Google Publisher Policies require useful publisher content, so the project ships with original guides, privacy/terms pages, sitemap, robots, and labeled ad placements.
+
+Sources:
+
+- https://investors.etsy.com/news-events/press-releases/detail/218/etsy-inc-reports-fourth-quarter-and-full-year-2025-results
+- https://help.cricut.com/hc/en-us/articles/360009429814-How-large-can-I-Print-Then-Cut
+- https://support.google.com/adsense/answer/1348688?hl=en
+
+## Stack
+
+- Next.js 16 App Router
+- React 19 + TypeScript
+- CSS modules via global app CSS, no UI framework
+- Vitest for core layout/pricing tests
+- Playwright for browser smoke tests
+
+## Features
+
+- Mixed-size sticker nesting across Cricut Letter, Cricut A4, Silhouette Letter, and proof presets.
+- Bleed, gap, safety margin, and rotation controls.
+- Multi-sheet preview with cuttable-area overlay.
+- SVG export for visual production reference.
+- CSV cut list export with sheet, item, position, dimensions, and rotation.
+- Profit panel with material, ink, labor, packaging, fee, break-even, and margin.
+- SEO pages for research, sticker profit, and Cricut size intent.
+- AdSense-ready environment variables and clearly labeled ad slots.
+
+## Local Development
 
 ```bash
+cd /Users/rick/Documents/AICode/stickerfit-studio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run typecheck
+npm run test:unit
+```
 
-## Learn More
+Optional browser test:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## AdSense Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Replace the placeholder values in `.env.example` and create `.env.local`.
+2. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
+3. Set `NEXT_PUBLIC_ADSENSE_CLIENT` and `NEXT_PUBLIC_ADSENSE_SLOT` after Google approves the property.
+4. Copy `ads.txt.example` to `public/ads.txt` and replace the publisher id with the real id.
+5. Before applying, publish more original guides and replace the placeholder privacy contact.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vercel is the simplest target:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npx vercel
+```
+
+For any Node host:
+
+```bash
+npm run build
+npm run start
+```
+
+Recommended production environment:
+
+- Node.js 20.19+ or 22+
+- `NEXT_PUBLIC_SITE_URL=https://your-domain.com`
+- `NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-...`
+- `NEXT_PUBLIC_ADSENSE_SLOT=...`
+
+## Next Content Ideas
+
+- Sticker paper cost comparison by material.
+- Cricut vs Silhouette registration mark guide.
+- Etsy sticker pricing examples by niche.
+- Free printable sticker sheet template pages.
+- Troubleshooting guide for wasted margins and misaligned cuts.
