@@ -69,6 +69,10 @@ Cloudflare Pages:
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) and [CLOUDFLARE_GOOGLE_LAUNCH.md](./CLOUDFLARE_GOOGLE_LAUNCH.md) for the full launch checklist.
 
+## Product Behavior Docs
+
+BDD specifications are available in [docs/business-logic-bdd.md](./docs/business-logic-bdd.md), with separate English and Chinese versions.
+
 ## Demo Archive
 
 The earlier demo/case-study version is preserved on the `demo-version` branch.
