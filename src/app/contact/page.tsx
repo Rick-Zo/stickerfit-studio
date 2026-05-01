@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { contactEmail } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -19,14 +20,20 @@ export default function ContactPage() {
         </p>
       </header>
       <article className="article-body">
-        <h2>Contact status</h2>
+        <h2>Email support</h2>
         <p>
-          Public contact details will be added after the custom domain and site mailbox are ready.
+          For calculator feedback, production-planning questions, accessibility issues, or partnership inquiries, email{" "}
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
         </p>
         <h2>What to include</h2>
         <p>
           If you are reporting a layout issue, include the paper preset, sticker dimensions, quantity, bleed, gap, and
           whether rotation was enabled. Do not send private customer data or payment details.
+        </p>
+        <h2>Response expectations</h2>
+        <p>
+          StickerFit Studio is a free planning tool. We prioritize reports that include reproducible calculator settings
+          and clear examples of the expected sheet layout.
         </p>
       </article>
     </main>

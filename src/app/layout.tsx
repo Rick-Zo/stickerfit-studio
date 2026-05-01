@@ -4,7 +4,7 @@ import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { absoluteUrl, siteName, siteUrl } from "@/lib/site";
+import { absoluteUrl, contactEmail, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -76,6 +76,7 @@ const siteSchema = {
       logo: absoluteUrl("/logo.svg"),
       contactPoint: {
         "@type": "ContactPoint",
+        email: contactEmail,
         url: absoluteUrl("/contact/"),
         contactType: "customer support",
       },
@@ -137,7 +138,6 @@ export default function RootLayout({
             <Link href="/contact">Contact</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
-            <Link href="/sitemap.xml">Sitemap</Link>
           </nav>
         </footer>
       </body>

@@ -24,6 +24,7 @@ Set these variables in the hosting dashboard:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_CONTACT_EMAIL=support@your-domain.com
 ```
 
 Optional ad variables:
@@ -77,7 +78,7 @@ google.com, pub-yourpublisherid, DIRECT, f08c47fec0942fa0
 ## Launch Checklist
 
 - Set the real production domain in `NEXT_PUBLIC_SITE_URL`.
-- Add a domain mailbox or contact form after the production domain is live.
+- Configure a working domain mailbox for the public contact address.
 - Verify `/privacy/`, `/terms/`, `/sitemap.xml`, and `/robots.txt` after deployment.
 - Test the calculator on desktop and mobile.
 - Export one SVG and one CSV from the live site.

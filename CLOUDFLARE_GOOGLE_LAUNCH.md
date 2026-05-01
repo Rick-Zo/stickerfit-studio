@@ -17,6 +17,7 @@ Production environment variables:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://YOUR_DOMAIN
+NEXT_PUBLIC_CONTACT_EMAIL=support@YOUR_DOMAIN
 ```
 
 Optional after AdSense approval:

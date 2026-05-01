@@ -6,6 +6,8 @@ export const siteUrl =
   process.env.CF_PAGES_URL ??
   "https://stickerfitstudio.com";
 
+export const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "support@sticker-fit.com";
+
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
 }

@@ -44,6 +44,7 @@ Create `.env.local` from `.env.example` for local production-like testing:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_CONTACT_EMAIL=support@your-domain.com
 NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-yourpublisherid
 NEXT_PUBLIC_ADSENSE_SLOT=your-slot-id
 ```

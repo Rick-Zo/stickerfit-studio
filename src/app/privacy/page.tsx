@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { contactEmail } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -29,8 +29,7 @@ export default function PrivacyPage() {
         </p>
         <h2>Contact</h2>
         <p>
-          Questions about this policy can be sent through the <Link href="/contact/">Contact page</Link>. A domain
-          mailbox will be added after launch.
+          Questions about this policy can be sent to <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
         </p>
       </article>
     </main>

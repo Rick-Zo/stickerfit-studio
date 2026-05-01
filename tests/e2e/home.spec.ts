@@ -14,3 +14,29 @@ test("planner updates layout metrics and exposes exports", async ({ page }) => {
   await expect(page.getByRole("button", { name: /export svg/i })).toBeVisible();
   await expect(page.getByRole("button", { name: /cut list csv/i })).toBeVisible();
 });
+
+test("public pages use launch-ready business copy", async ({ page }) => {
+  await page.goto("/");
+
+  const footer = page.locator("footer");
+  await expect(footer.getByRole("link", { name: "Contact" })).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Privacy" })).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Terms" })).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Sitemap" })).toHaveCount(0);
+
+  await page.goto("/contact/");
+  await expect(page.getByRole("heading", { level: 2, name: "Email support" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "support@sticker-fit.com" })).toHaveAttribute(
+    "href",
+    "mailto:support@sticker-fit.com",
+  );
+  await expect(page.getByText("Public contact details")).toHaveCount(0);
+  await expect(page.getByText("mailbox will be added")).toHaveCount(0);
+
+  await page.goto("/privacy/");
+  await expect(page.getByRole("link", { name: "support@sticker-fit.com" })).toHaveAttribute(
+    "href",
+    "mailto:support@sticker-fit.com",
+  );
+  await expect(page.getByText("mailbox will be added")).toHaveCount(0);
+});
