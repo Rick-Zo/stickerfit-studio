@@ -3,7 +3,10 @@ set -euo pipefail
 
 URL="${1:-}"
 KEYWORD="${2:-sticker sheet calculator}"
-SKILL_DIR="${SEO_AUDIT_SKILL_DIR:-/Users/rick/Documents/AICode/osps/repos/seo-audit-skill/seo-audit}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+DEFAULT_SKILL_DIR="$(cd "$PROJECT_DIR/../osps/repos/seo-audit-skill/seo-audit" 2>/dev/null && pwd || true)"
+SKILL_DIR="${SEO_AUDIT_SKILL_DIR:-$DEFAULT_SKILL_DIR}"
 
 if [[ -z "$URL" ]]; then
   echo "Usage: scripts/seo-audit-live.sh https://your-domain.com/ \"sticker sheet calculator\"" >&2

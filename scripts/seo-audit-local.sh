@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SKILL_DIR="${SEO_AUDIT_SKILL_DIR:-/Users/rick/Documents/AICode/osps/repos/seo-audit-skill/seo-audit}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+DEFAULT_SKILL_DIR="$(cd "$PROJECT_DIR/../osps/repos/seo-audit-skill/seo-audit" 2>/dev/null && pwd || true)"
+SKILL_DIR="${SEO_AUDIT_SKILL_DIR:-$DEFAULT_SKILL_DIR}"
 
 if [[ ! -d "$SKILL_DIR/scripts" ]]; then
   echo "SEO audit skill not found at: $SKILL_DIR" >&2

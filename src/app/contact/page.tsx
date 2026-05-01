@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { contactEmail } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -20,9 +19,9 @@ export default function ContactPage() {
         </p>
       </header>
       <article className="article-body">
-        <h2>Email</h2>
+        <h2>Contact status</h2>
         <p>
-          Contact us at <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+          Public contact details will be added after the custom domain and site mailbox are ready.
         </p>
         <h2>What to include</h2>
         <p>

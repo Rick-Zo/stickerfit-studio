@@ -4,7 +4,7 @@ import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { absoluteUrl, contactEmail, siteName, siteUrl } from "@/lib/site";
+import { absoluteUrl, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -74,10 +74,9 @@ const siteSchema = {
       name: siteName,
       url: siteUrl,
       logo: absoluteUrl("/logo.svg"),
-      sameAs: ["https://github.com/Rick-Zo/stickerfit-studio"],
       contactPoint: {
         "@type": "ContactPoint",
-        email: contactEmail,
+        url: absoluteUrl("/contact/"),
         contactType: "customer support",
       },
     },
