@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "serve out",
     "preview": "serve out",
+    "deploy:cloudflare": "npm run build && wrangler pages deploy out --project-name stickerfit-studio",
+    "cf:whoami": "wrangler whoami",
+    "seo:local": "scripts/seo-audit-local.sh",
+    "seo:live": "scripts/seo-audit-live.sh",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -29,6 +33,7 @@
     "eslint-config-next": "16.2.4",
     "serve": "14.2.6",
     "typescript": "^5",
-    "vitest": "4.1.5"
+    "vitest": "4.1.5",
+    "wrangler": "4.86.0"
   }
 }

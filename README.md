@@ -67,7 +67,7 @@ Cloudflare Pages:
 - Output directory: `out`
 - Node version: 20.19+ or 22+
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full checklist.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) and [CLOUDFLARE_GOOGLE_LAUNCH.md](./CLOUDFLARE_GOOGLE_LAUNCH.md) for the full launch checklist.
 
 ## Demo Archive
 

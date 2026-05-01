@@ -55,6 +55,18 @@ If ad variables are missing, ad components return nothing and the public UI rema
 6. Add the environment variables above.
 7. Deploy.
 
+For direct upload through Wrangler:
+
+```bash
+export CLOUDFLARE_API_TOKEN=...
+export CLOUDFLARE_ACCOUNT_ID=...
+npm run cf:whoami
+npx wrangler pages project create stickerfit-studio --production-branch main
+npm run deploy:cloudflare
+```
+
+See [CLOUDFLARE_GOOGLE_LAUNCH.md](./CLOUDFLARE_GOOGLE_LAUNCH.md) for the domain, Google Search Console, and post-launch SEO checklist.
+
 ## Ads.txt
 
 After a publisher account is approved, create `public/ads.txt` from `ads.txt.example` and replace the publisher id:

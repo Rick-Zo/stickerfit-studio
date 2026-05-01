@@ -1,0 +1,5 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "stickerfit-studio",
+  "pages_build_output_dir": "out"
+}
