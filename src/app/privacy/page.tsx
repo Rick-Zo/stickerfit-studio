@@ -4,6 +4,9 @@ import { contactEmail } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy policy for StickerFit Studio.",
+  alternates: {
+    canonical: "/privacy/",
+  },
 };
 
 export default function PrivacyPage() {

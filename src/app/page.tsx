@@ -7,10 +7,10 @@ export default function Home() {
       <section className="product-intro">
         <div>
           <p className="eyebrow">Sticker sheet planner</p>
-          <h1>Plan profitable Cricut and Silhouette sticker sheets in minutes.</h1>
+          <h1>Sticker sheet calculator for Cricut, Silhouette, and Etsy sellers.</h1>
           <p>
-            A production calculator for Etsy sticker sellers: pack mixed-size stickers, estimate waste, export a cut list,
-            and sanity-check sheet profit before you print.
+            Plan mixed-size sticker layouts, estimate paper waste, export production files, and check sheet profit before
+            you print.
           </p>
         </div>
         <AdSlot size="sidebar" />
@@ -34,6 +34,32 @@ export default function Home() {
           <span>Estimate material waste</span>
           <span>Price every sheet confidently</span>
         </div>
+      </section>
+
+      <section className="content-band editorial-grid">
+        <article>
+          <h2>How the sticker sheet calculator works</h2>
+          <p>
+            Enter each sticker size, quantity, bleed, spacing, and safety margin. StickerFit Studio packs the stickers
+            into the selected cuttable area, then shows sheet count, coverage, waste, and unplaced items. The result gives
+            you a fast production estimate before you open your cutting software.
+          </p>
+        </article>
+        <article>
+          <h2>Why mixed-size planning matters</h2>
+          <p>
+            Real sticker listings often combine round stickers, labels, sampler pieces, and small freebies. A simple
+            rows-and-columns calculator cannot tell whether those pieces share a sheet efficiently. Mixed-size planning
+            helps reduce wasted vinyl, sticker paper, ink, and packing time.
+          </p>
+        </article>
+        <article>
+          <h2>What you can export</h2>
+          <p>
+            Export an SVG layout for visual production notes and a CSV cut list with sheet number, item name, position,
+            size, and rotation. Keep both files with your listing notes so repeat batches are easier to price and print.
+          </p>
+        </article>
       </section>
     </main>
   );

@@ -90,21 +90,15 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--ink);
   font-weight: 800;
   text-decoration: none;
 }
 
-.brand span {
-  width: 34px;
-  height: 34px;
-  display: inline-grid;
-  place-items: center;
-  color: white;
-  background: var(--ink);
-  border-radius: 8px;
-  font-size: 0.9rem;
+.brand img {
+  width: 180px;
+  height: auto;
+  display: block;
 }
 
 .site-header nav,
@@ -652,6 +646,21 @@ h1 {
   font-weight: 800;
 }
 
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.editorial-grid article {
+  min-width: 0;
+}
+
+.editorial-grid h2 {
+  font-size: 1.32rem;
+  line-height: 1.15;
+}
+
 .article-page {
   width: min(1120px, calc(100% - 32px));
   margin: 16px auto 48px;
@@ -816,6 +825,7 @@ h1 {
   .product-intro,
   .tool-shell,
   .two-column,
+  .editorial-grid,
   .article-layout {
     grid-template-columns: 1fr;
   }

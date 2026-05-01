@@ -1,15 +1,46 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
+import { JsonLd } from "@/components/JsonLd";
+import { absoluteUrl, siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Cricut Print Then Cut Size Chart",
-  description: "A practical size chart for planning sticker sheets inside Cricut Print Then Cut limits.",
+  description:
+    "Check Cricut Print Then Cut size limits for sticker sheets, including Letter and A4 planning presets, bleed, gaps, and rotation tips.",
+  alternates: {
+    canonical: "/guides/cricut-print-then-cut-size-chart/",
+  },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Cricut Print Then Cut Size Chart",
+  description: metadata.description,
+  datePublished: "2026-04-30",
+  dateModified: "2026-05-01",
+  author: {
+    "@type": "Organization",
+    name: siteName,
+    url: absoluteUrl("/"),
+  },
+  publisher: {
+    "@type": "Organization",
+    name: siteName,
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl("/logo.svg"),
+    },
+  },
+  image: absoluteUrl("/og-image.svg"),
+  mainEntityOfPage: absoluteUrl("/guides/cricut-print-then-cut-size-chart/"),
 };
 
 export default function CricutSizeGuidePage() {
   return (
     <main className="article-page">
+      <JsonLd data={articleSchema} />
       <header className="article-hero">
         <p className="eyebrow">Size guide</p>
         <h1>Cricut Print Then Cut size chart for sticker sheet planning.</h1>
@@ -55,6 +86,12 @@ export default function CricutSizeGuidePage() {
           <p>
             Rotation helps long labels, sampler packs, and freebie stickers share rows. It is usually safe for non-text
             art, but keep text-oriented stickers upright if the customer experience depends on reading direction.
+          </p>
+
+          <h2>How to use the chart</h2>
+          <p>
+            Start with the preset that matches your paper size, then enter the finished sticker dimensions into the
+            calculator. If your design needs full-bleed artwork, add bleed before comparing layout options.
           </p>
 
           <p>

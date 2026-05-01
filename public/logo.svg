@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-labelledby="title desc">
+  <title id="title">StickerFit Studio</title>
+  <desc id="desc">StickerFit Studio logo with a fitted sticker sheet symbol.</desc>
+  <rect x="0" y="0" width="96" height="96" rx="20" fill="#17211f"/>
+  <rect x="23" y="14" width="50" height="68" rx="7" fill="#f7f8f5"/>
+  <path d="M31 25h34M31 71h34" stroke="#d9e2df" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="38" cy="40" r="10" fill="#2bb3a3"/>
+  <circle cx="59" cy="40" r="8" fill="#f2b84b"/>
+  <rect x="30" y="55" width="36" height="10" rx="5" fill="#e56b5d"/>
+  <path d="M65 15c-2 10 0 16 8 20V22c0-4-4-7-8-7Z" fill="#d9e2df"/>
+  <text x="118" y="45" fill="#17211f" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">StickerFit</text>
+  <text x="118" y="70" fill="#66706d" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Studio</text>
+</svg>

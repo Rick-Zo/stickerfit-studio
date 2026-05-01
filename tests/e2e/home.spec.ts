@@ -3,9 +3,9 @@ import { expect, test } from "@playwright/test";
 test("planner updates layout metrics and exposes exports", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { name: /plan profitable cricut/i })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /sticker sheet calculator/i })).toBeVisible();
   await expect(page.getByTestId("sheet-preview")).toBeVisible();
-  await expect(page.getByText("Placed")).toBeVisible();
+  await expect(page.locator(".metric").filter({ hasText: "Placed" })).toBeVisible();
 
   const quantity = page.locator(".item-card").first().locator(".number-field").filter({ hasText: "Qty" }).locator("input");
   await quantity.fill("6");

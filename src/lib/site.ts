@@ -7,3 +7,7 @@ export const siteUrl =
   "https://stickerfitstudio.com";
 
 export const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@stickerfitstudio.com";
+
+export function absoluteUrl(path = "/") {
+  return new URL(path, siteUrl).toString();
+}

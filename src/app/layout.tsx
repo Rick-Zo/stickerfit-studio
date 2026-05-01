@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import { contactEmail, siteName, siteUrl } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { absoluteUrl, contactEmail, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,15 +18,16 @@ const geistMono = Geist_Mono({
 });
 
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+const siteDescription =
+  "Free sticker sheet calculator for Cricut, Silhouette, and Etsy sellers. Plan mixed-size layouts, reduce waste, export SVG/CSV files, and estimate profit.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Sticker Sheet Layout and Profit Calculator`,
+    default: `Sticker Sheet Calculator | ${siteName}`,
     template: `%s | ${siteName}`,
   },
-  description:
-    "Plan Cricut and Silhouette sticker sheets, optimize mixed-size sticker layouts, export SVG/CSV files, and estimate Etsy seller profit.",
+  description: siteDescription,
   keywords: [
     "sticker sheet calculator",
     "Cricut sticker sheet planner",
@@ -32,13 +35,68 @@ export const metadata: Metadata = {
     "print then cut layout",
     "Silhouette sticker template",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: "/logo-mark.svg",
+    shortcut: "/logo-mark.svg",
+  },
   openGraph: {
-    title: siteName,
-    description: "A mixed-size sticker sheet planner and profit calculator for small-batch sellers.",
+    title: `Sticker Sheet Calculator | ${siteName}`,
+    description: siteDescription,
     url: siteUrl,
     siteName,
     type: "website",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "StickerFit Studio sticker sheet calculator preview",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `Sticker Sheet Calculator | ${siteName}`,
+    description: siteDescription,
+    images: ["/og-image.svg"],
+  },
+};
+
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": absoluteUrl("/#organization"),
+      name: siteName,
+      url: siteUrl,
+      logo: absoluteUrl("/logo.svg"),
+      sameAs: ["https://github.com/Rick-Zo/stickerfit-studio"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: contactEmail,
+        contactType: "customer support",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": absoluteUrl("/#website"),
+      name: siteName,
+      url: siteUrl,
+      description: siteDescription,
+      publisher: {
+        "@id": absoluteUrl("/#organization"),
+      },
+      potentialAction: {
+        "@type": "UseAction",
+        name: "Use the sticker sheet calculator",
+        target: siteUrl,
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -49,6 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
+        <JsonLd data={siteSchema} />
         {adsenseClient ? (
           <Script
             async
@@ -59,13 +118,13 @@ export default function RootLayout({
         ) : null}
         <header className="site-header">
           <Link href="/" className="brand" aria-label="StickerFit Studio home">
-            <span>SF</span>
-            {siteName}
+            <Image src="/logo.svg" alt="StickerFit Studio" width={180} height={48} priority />
           </Link>
           <nav aria-label="Primary navigation">
             <Link href="/">Calculator</Link>
             <Link href="/guides/sticker-sheet-profit-calculator">Profit Guide</Link>
             <Link href="/guides/cricut-print-then-cut-size-chart">Size Guide</Link>
+            <Link href="/about">About</Link>
           </nav>
         </header>
         {children}
@@ -75,7 +134,8 @@ export default function RootLayout({
             <p>Independent sticker sheet planning tool for small-batch sellers.</p>
           </div>
           <nav aria-label="Footer navigation">
-            <a href={`mailto:${contactEmail}`}>Contact</a>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
             <Link href="/sitemap.xml">Sitemap</Link>
