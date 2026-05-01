@@ -24,7 +24,7 @@ const siteDescription =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `Sticker Sheet Calculator | ${siteName}`,
+    default: `Sticker Sheet Calculator for Cricut | ${siteName}`,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     shortcut: "/logo-mark.svg",
   },
   openGraph: {
-    title: `Sticker Sheet Calculator | ${siteName}`,
+    title: `Sticker Sheet Calculator for Cricut | ${siteName}`,
     description: siteDescription,
     url: siteUrl,
     siteName,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Sticker Sheet Calculator | ${siteName}`,
+    title: `Sticker Sheet Calculator for Cricut | ${siteName}`,
     description: siteDescription,
     images: ["/og-image.svg"],
   },
