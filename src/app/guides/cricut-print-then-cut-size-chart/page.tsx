@@ -2,45 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
 import { JsonLd } from "@/components/JsonLd";
-import { absoluteUrl, siteName } from "@/lib/site";
+import { articleSchema, getGuide } from "@/lib/guides";
+
+const guide = getGuide("cricut-print-then-cut-size-chart");
 
 export const metadata: Metadata = {
-  title: "Cricut Print Then Cut Size Chart",
-  description:
-    "Check Cricut Print Then Cut size limits for sticker sheets, including Letter and A4 planning presets, bleed, gaps, and rotation tips.",
+  title: guide.title,
+  description: guide.description,
   alternates: {
     canonical: "/guides/cricut-print-then-cut-size-chart/",
   },
 };
 
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline: "Cricut Print Then Cut Size Chart",
-  description: metadata.description,
-  datePublished: "2026-04-30",
-  dateModified: "2026-05-01",
-  author: {
-    "@type": "Organization",
-    name: siteName,
-    url: absoluteUrl("/"),
-  },
-  publisher: {
-    "@type": "Organization",
-    name: siteName,
-    logo: {
-      "@type": "ImageObject",
-      url: absoluteUrl("/logo.svg"),
-    },
-  },
-  image: absoluteUrl("/og-image.svg"),
-  mainEntityOfPage: absoluteUrl("/guides/cricut-print-then-cut-size-chart/"),
-};
-
 export default function CricutSizeGuidePage() {
   return (
     <main className="article-page">
-      <JsonLd data={articleSchema} />
+      <JsonLd data={articleSchema(guide)} />
       <header className="article-hero">
         <p className="eyebrow">Size guide</p>
         <h1>Cricut Print Then Cut size chart for sticker sheet planning.</h1>

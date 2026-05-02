@@ -72,6 +72,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) and [CLOUDFLARE_GOOGLE_LAUNCH.md](./CLOUDFL
 ## Product Behavior Docs
 
 BDD specifications are available in [docs/business-logic-bdd.md](./docs/business-logic-bdd.md), with separate English and Chinese versions.
+The AdSense and content roadmap is documented in [docs/content-plan.md](./docs/content-plan.md).
 
 ## Demo Archive
 

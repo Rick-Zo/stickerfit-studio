@@ -40,3 +40,19 @@ test("public pages use launch-ready business copy", async ({ page }) => {
   );
   await expect(page.getByText("mailbox will be added")).toHaveCount(0);
 });
+
+test("guide library exposes content pages for crawlers and visitors", async ({ page }) => {
+  await page.goto("/guides/");
+
+  await expect(page.getByRole("heading", { level: 1, name: /plan cleaner sticker sheets/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: "How Many Stickers Fit on a Sheet?" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Sticker Paper Cost per Sheet" })).toBeVisible();
+
+  await page.goto("/guides/how-many-stickers-fit-on-a-sheet/");
+  await expect(page.getByRole("heading", { level: 1, name: /how many stickers fit on a sheet/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /open the sticker sheet calculator/i })).toBeVisible();
+
+  const sitemap = await page.request.get("/sitemap.xml");
+  await expect(sitemap).toBeOK();
+  await expect(await sitemap.text()).toContain("/guides/how-many-stickers-fit-on-a-sheet/");
+});

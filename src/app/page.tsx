@@ -1,5 +1,15 @@
+import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
 import { StickerPlanner } from "@/components/StickerPlanner";
+import { guides, guidePath } from "@/lib/guides";
+
+const featuredGuides = guides.filter((guide) =>
+  [
+    "how-many-stickers-fit-on-a-sheet",
+    "sticker-paper-cost-per-sheet",
+    "sticker-bleed-and-gap-guide",
+  ].includes(guide.slug),
+);
 
 export default function Home() {
   return (
@@ -60,6 +70,18 @@ export default function Home() {
             size, and rotation. Keep both files with your listing notes so repeat batches are easier to price and print.
           </p>
         </article>
+      </section>
+
+      <section className="content-band editorial-grid guide-grid" aria-label="Featured sticker seller guides">
+        {featuredGuides.map((guide) => (
+          <article key={guide.slug}>
+            <p className="eyebrow">{guide.category}</p>
+            <h2>
+              <Link href={guidePath(guide.slug)}>{guide.title}</Link>
+            </h2>
+            <p>{guide.summary}</p>
+          </article>
+        ))}
       </section>
     </main>
   );

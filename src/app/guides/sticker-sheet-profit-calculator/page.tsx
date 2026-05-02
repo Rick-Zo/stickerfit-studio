@@ -2,45 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
 import { JsonLd } from "@/components/JsonLd";
-import { absoluteUrl, siteName } from "@/lib/site";
+import { articleSchema, getGuide } from "@/lib/guides";
+
+const guide = getGuide("sticker-sheet-profit-calculator");
 
 export const metadata: Metadata = {
-  title: "Sticker Sheet Profit Calculator Guide",
-  description:
-    "Use this sticker sheet profit calculator guide to price handmade sticker sheets with material, ink, labor, packaging, and marketplace fees.",
+  title: guide.title,
+  description: guide.description,
   alternates: {
     canonical: "/guides/sticker-sheet-profit-calculator/",
   },
 };
 
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline: "Sticker Sheet Profit Calculator Guide",
-  description: metadata.description,
-  datePublished: "2026-04-30",
-  dateModified: "2026-05-01",
-  author: {
-    "@type": "Organization",
-    name: siteName,
-    url: absoluteUrl("/"),
-  },
-  publisher: {
-    "@type": "Organization",
-    name: siteName,
-    logo: {
-      "@type": "ImageObject",
-      url: absoluteUrl("/logo.svg"),
-    },
-  },
-  image: absoluteUrl("/og-image.svg"),
-  mainEntityOfPage: absoluteUrl("/guides/sticker-sheet-profit-calculator/"),
-};
-
 export default function ProfitGuidePage() {
   return (
     <main className="article-page">
-      <JsonLd data={articleSchema} />
+      <JsonLd data={articleSchema(guide)} />
       <header className="article-hero">
         <p className="eyebrow">Pricing guide</p>
         <h1>Sticker sheet profit calculator: the simple formula sellers miss.</h1>

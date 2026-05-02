@@ -661,6 +661,19 @@ h1 {
   line-height: 1.15;
 }
 
+.guide-grid {
+  margin-top: 20px;
+}
+
+.guide-grid a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.guide-grid a:hover {
+  color: #226d66;
+}
+
 .article-page {
   width: min(1120px, calc(100% - 32px));
   margin: 16px auto 48px;

@@ -122,8 +122,7 @@ export default function RootLayout({
           </Link>
           <nav aria-label="Primary navigation">
             <Link href="/">Calculator</Link>
-            <Link href="/guides/sticker-sheet-profit-calculator">Profit Guide</Link>
-            <Link href="/guides/cricut-print-then-cut-size-chart">Size Guide</Link>
+            <Link href="/guides">Guides</Link>
             <Link href="/about">About</Link>
           </nav>
         </header>
