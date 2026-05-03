@@ -20,12 +20,15 @@ test("public pages use launch-ready business copy", async ({ page }) => {
 
   const footer = page.locator("footer");
   await expect(footer.getByRole("link", { name: "Contact" })).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Pricing" })).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Refund Policy" })).toBeVisible();
   await expect(footer.getByRole("link", { name: "Privacy" })).toBeVisible();
   await expect(footer.getByRole("link", { name: "Terms" })).toBeVisible();
   await expect(footer.getByRole("link", { name: "Sitemap" })).toHaveCount(0);
 
   await page.goto("/contact/");
   await expect(page.getByRole("heading", { level: 2, name: "Email support" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Billing support" })).toBeVisible();
   await expect(page.getByRole("link", { name: "support@sticker-fit.com" })).toHaveAttribute(
     "href",
     "mailto:support@sticker-fit.com",
@@ -39,6 +42,14 @@ test("public pages use launch-ready business copy", async ({ page }) => {
     "mailto:support@sticker-fit.com",
   );
   await expect(page.getByText("mailbox will be added")).toHaveCount(0);
+
+  await page.goto("/pricing/");
+  await expect(page.getByRole("heading", { level: 1, name: "StickerFit Studio pricing" })).toBeVisible();
+  await expect(page.getByText("Price: 0 USD")).toBeVisible();
+
+  await page.goto("/refund-policy/");
+  await expect(page.getByRole("heading", { level: 1, name: "Refund Policy" })).toBeVisible();
+  await expect(page.getByText("within 14 days of purchase")).toBeVisible();
 });
 
 test("guide library exposes content pages for crawlers and visitors", async ({ page }) => {
@@ -54,5 +65,8 @@ test("guide library exposes content pages for crawlers and visitors", async ({ p
 
   const sitemap = await page.request.get("/sitemap.xml");
   await expect(sitemap).toBeOK();
-  await expect(await sitemap.text()).toContain("/guides/how-many-stickers-fit-on-a-sheet/");
+  const sitemapText = await sitemap.text();
+  await expect(sitemapText).toContain("/guides/how-many-stickers-fit-on-a-sheet/");
+  await expect(sitemapText).toContain("/pricing/");
+  await expect(sitemapText).toContain("/refund-policy/");
 });

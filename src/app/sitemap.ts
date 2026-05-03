@@ -10,6 +10,8 @@ const routes = [
   ...guides.map((guide) => guidePath(guide.slug)),
   "/about/",
   "/contact/",
+  "/pricing/",
+  "/refund-policy/",
   "/privacy/",
   "/terms/",
 ];

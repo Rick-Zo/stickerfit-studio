@@ -3,7 +3,7 @@ import { contactEmail } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact StickerFit Studio about the sticker sheet calculator, production planning, and site feedback.",
+  description: "Contact StickerFit Studio about the calculator, production planning, billing support, and site feedback.",
   alternates: {
     canonical: "/contact/",
   },
@@ -22,8 +22,13 @@ export default function ContactPage() {
       <article className="article-body">
         <h2>Email support</h2>
         <p>
-          For calculator feedback, production-planning questions, accessibility issues, or partnership inquiries, email{" "}
-          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+          For calculator feedback, production-planning questions, accessibility issues, billing questions, refund
+          requests, or partnership inquiries, email <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+        </p>
+        <h2>Billing support</h2>
+        <p>
+          If you contact us about a paid product, include the order email, receipt ID, product name, and a short
+          description of the issue. We aim to respond to billing and refund requests within 3 business days.
         </p>
         <h2>What to include</h2>
         <p>

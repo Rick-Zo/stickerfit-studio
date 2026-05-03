@@ -123,6 +123,7 @@ export default function RootLayout({
           <nav aria-label="Primary navigation">
             <Link href="/">Calculator</Link>
             <Link href="/guides">Guides</Link>
+            <Link href="/pricing">Pricing</Link>
             <Link href="/about">About</Link>
           </nav>
         </header>
@@ -135,6 +136,8 @@ export default function RootLayout({
           <nav aria-label="Footer navigation">
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
+            <Link href="/pricing">Pricing</Link>
+            <Link href="/refund-policy">Refund Policy</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
           </nav>
