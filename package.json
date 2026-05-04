@@ -8,6 +8,7 @@
     "start": "serve out",
     "preview": "serve out",
     "deploy:cloudflare": "scripts/cloudflare-deploy.sh",
+    "assets:brand": "node scripts/generate-brand-assets.mjs",
     "cf:whoami": "scripts/cloudflare-whoami.sh",
     "seo:local": "scripts/seo-audit-local.sh",
     "seo:live": "scripts/seo-audit-live.sh",

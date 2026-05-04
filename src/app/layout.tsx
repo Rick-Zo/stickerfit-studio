@@ -38,9 +38,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.webmanifest",
   icons: {
-    icon: "/logo-mark.svg",
-    shortcut: "/logo-mark.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: `Sticker Sheet Calculator for Cricut | ${siteName}`,
@@ -50,7 +57,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "StickerFit Studio sticker sheet calculator preview",
@@ -61,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Sticker Sheet Calculator for Cricut | ${siteName}`,
     description: siteDescription,
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -73,7 +80,8 @@ const siteSchema = {
       "@id": absoluteUrl("/#organization"),
       name: siteName,
       url: siteUrl,
-      logo: absoluteUrl("/logo.svg"),
+      logo: absoluteUrl("/icon-512.png"),
+      image: absoluteUrl("/og-image.png"),
       contactPoint: {
         "@type": "ContactPoint",
         email: contactEmail,
